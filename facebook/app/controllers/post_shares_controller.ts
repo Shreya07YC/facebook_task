@@ -7,6 +7,7 @@ import { messages } from "@vinejs/vine/defaults";
 
 export default class PostSharesController {
     public async index({response}:HttpContext){
+        try{
         const postshareService=new PostShareService();
         const postshare=await postshareService.findAll();
         return response.status(200).send(postshare)
