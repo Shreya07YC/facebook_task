@@ -3,9 +3,9 @@ import { BaseModel, belongsTo, column, hasMany } from '@adonisjs/lucid/orm'
 import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
 import Page from './page.js'
 import User from './user.js'
-import PostLike from './post_like.js'
-import PostComment from './post_comment.js'
-import PostShare from './post_share.js'
+import Like from './like.js'
+import Comment from './comment.js'
+import Share from './share.js'
 
 export default class Post extends BaseModel {
   @column({ isPrimary: true })
@@ -32,12 +32,12 @@ export default class Post extends BaseModel {
   @belongsTo(()=> User, { foreignKey: 'userId' })
   declare user: BelongsTo<typeof User>
 
-  @hasMany(()=>PostLike)
-  declare likes: HasMany<typeof PostLike>
+  @hasMany(()=>Like)
+  declare likes: HasMany<typeof Like>
 
-  @hasMany(()=>PostComment)
-  declare comments: HasMany<typeof PostComment>
+  @hasMany(()=>Comment)
+  declare comments: HasMany<typeof Comment>
 
-  @hasMany(()=>PostShare)
-  declare shares: HasMany<typeof PostShare>
+  @hasMany(()=>Share)
+  declare shares: HasMany<typeof Share>
 }

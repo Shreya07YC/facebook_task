@@ -1,6 +1,6 @@
 import vine from '@vinejs/vine'
 
-export const PostCommentValidator=vine.compile(
+export const CommentValidator=vine.compile(
     vine.object({
         postId:vine.number().positive(),
         userId:vine.number().positive(),

@@ -2,20 +2,19 @@ import { DateTime } from 'luxon'
 import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
 import Post from './post.js'
 import type { BelongsTo } from '@adonisjs/lucid/types/relations'
-import User from './user.js'
 
-export default class PostComment extends BaseModel {
+export default class Like extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
-
-  @column()
-  declare commentText: string
 
   @column()
   declare postId: number
 
   @column()
   declare userId: number
+
+  @column()
+  declare isLike: boolean
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -24,8 +23,6 @@ export default class PostComment extends BaseModel {
   declare updatedAt: DateTime
 
   @belongsTo (()=>Post, { foreignKey: 'postId' })
-  declare post: BelongsTo<typeof Post>
+  declare post : BelongsTo<typeof Post>
 
-  @belongsTo(()=>User, { foreignKey: 'userId' })
-  declare user: BelongsTo<typeof User>
 }

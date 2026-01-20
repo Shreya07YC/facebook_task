@@ -1,6 +1,6 @@
 import vine from '@vinejs/vine'
 
-export const PostLikeValidator = vine.compile(
+export const LikeValidator = vine.compile(
     vine.object({
         postId: vine.number().positive(),
         userId: vine.number().positive(),

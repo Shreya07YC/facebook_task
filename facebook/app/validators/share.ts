@@ -1,6 +1,6 @@
 import vine from '@vinejs/vine'
 
-export const PostShareValidator = vine.compile(
+export const ShareValidator = vine.compile(
     vine.object({
         postId:vine.number().positive(),
         userId:vine.number().positive()
